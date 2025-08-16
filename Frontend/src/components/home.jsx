@@ -79,14 +79,14 @@ const Home = () => {
     };
 
     return (
-        <div className="flex w-full p-10 bg-blue-700 justify-center min-h-screen">
-            <div className="bg-white rounded-lg p-10 flex flex-col gap-6 w-[800px]">
+        <div className="flex w-full p-10 bg-gray-100 justify-center min-h-screen">
+            <div className="bg-white rounded-2xl p-10 flex flex-col gap-6 w-[800px] shadow-md">
                 <h1 className="text-2xl font-bold text-center">Liste des personnages</h1>
 
                 {/* Formulaire d'ajout */}
                 <div className="flex gap-4">
                     <input
-                        className="border p-2 rounded w-full"
+                        className="border p-2 rounded-md w-full"
                         type="text"
                         placeholder="Nom"
                         value={newCharacter.name}
@@ -95,7 +95,7 @@ const Home = () => {
                         }
                     />
                     <input
-                        className="border p-2 rounded w-full"
+                        className="border p-2 rounded-md w-full"
                         type="text"
                         placeholder="Nom réel"
                         value={newCharacter.realName}
@@ -104,7 +104,7 @@ const Home = () => {
                         }
                     />
                     <input
-                        className="border p-2 rounded w-full"
+                        className="border p-2 rounded-md w-full"
                         type="text"
                         placeholder="Univers"
                         value={newCharacter.universe}
@@ -113,14 +113,14 @@ const Home = () => {
                         }
                     />
                     <button
-                        className="bg-blue-700 text-white px-8 py-1.5 rounded"
+                        className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-md"
                         onClick={handleAdd}
                     >
                         Add+
                     </button>
                 </div>
 
-                 <ul className="flex justify-between font-bold border-b pb-2">
+                <ul className="flex justify-between font-bold border-b pb-2">
                     <li className="w-[10%]">ID</li>
                     <li className="w-[20%]">Nom</li>
                     <li className="w-[30%]">Nom Réel</li>
@@ -128,18 +128,18 @@ const Home = () => {
                     <li className="w-[20%]">Actions</li>
                 </ul>
 
-                 {characters.map((char) => (
+                {characters.map((char) => (
                     <ul
                         key={char.id}
                         className="flex justify-between border-b py-2 items-center"
                     >
                         <li className="w-[10%]">{char.id}</li>
 
-                         {editingCharacterId === char.id ? (
+                        {editingCharacterId === char.id ? (
                             <>
                                 <li className="w-[20%]">
                                     <input
-                                        className="border p-1 rounded w-full"
+                                        className="border p-1 rounded-md w-full"
                                         type="text"
                                         value={editingCharacterData.name}
                                         onChange={(e) =>
@@ -152,7 +152,7 @@ const Home = () => {
                                 </li>
                                 <li className="w-[30%]">
                                     <input
-                                        className="border p-1 rounded w-full"
+                                        className="border p-1 rounded-md w-full"
                                         type="text"
                                         value={editingCharacterData.realName}
                                         onChange={(e) =>
@@ -165,7 +165,7 @@ const Home = () => {
                                 </li>
                                 <li className="w-[20%]">
                                     <input
-                                        className="border p-1 rounded w-full"
+                                        className="border p-1 rounded-md w-full"
                                         type="text"
                                         value={editingCharacterData.universe}
                                         onChange={(e) =>
@@ -189,13 +189,13 @@ const Home = () => {
                             {editingCharacterId === char.id ? (
                                 <>
                                     <button
-                                        className="bg-green-500 text-white px-2 py-1 rounded"
+                                        className="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md"
                                         onClick={() => saveEditing(char.id)}
                                     >
                                         Sauvegarder
                                     </button>
                                     <button
-                                        className="bg-gray-400 text-white px-2 py-1 rounded"
+                                        className="bg-gray-400 hover:bg-gray-500 text-white px-2 py-1 rounded-md"
                                         onClick={cancelEditing}
                                     >
                                         Annuler
@@ -204,13 +204,13 @@ const Home = () => {
                             ) : (
                                 <>
                                     <button
-                                        className="bg-blue-500 text-white px-2 py-1 rounded"
+                                        className="bg-gray-600 hover:bg-gray-700 text-white px-2 py-1 rounded-md"
                                         onClick={() => startEditing(char)}
                                     >
                                         Modifier
                                     </button>
                                     <button
-                                        className="bg-red-500 text-white px-2 py-1 rounded"
+                                        className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-md"
                                         onClick={() => handleDelete(char.id)}
                                     >
                                         Supprimer
